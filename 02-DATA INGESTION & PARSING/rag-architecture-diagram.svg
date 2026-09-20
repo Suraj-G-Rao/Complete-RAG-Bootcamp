@@ -1,0 +1,185 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="600" y="30" font-size="28" font-weight="bold" text-anchor="middle" fill="#2D3748">RAG (Retrieval-Augmented Generation) Architecture</text>
+  
+  <!-- Phase 1: Document Ingestion (Left Side) -->
+  <g id="ingestion-phase">
+    <!-- Background -->
+    <rect x="20" y="60" width="350" height="720" fill="#EBF8FF" stroke="#3182CE" stroke-width="2" rx="10"/>
+    <text x="195" y="90" font-size="20" font-weight="bold" text-anchor="middle" fill="#2B6CB0">1. Document Ingestion Phase</text>
+    
+    <!-- Documents -->
+    <g id="documents">
+      <rect x="140" y="120" width="110" height="40" fill="#FFF" stroke="#718096" stroke-width="2" rx="5"/>
+      <text x="195" y="145" font-size="14" text-anchor="middle" fill="#2D3748">PDFs</text>
+      
+      <rect x="140" y="170" width="110" height="40" fill="#FFF" stroke="#718096" stroke-width="2" rx="5"/>
+      <text x="195" y="195" font-size="14" text-anchor="middle" fill="#2D3748">Web Pages</text>
+      
+      <rect x="140" y="220" width="110" height="40" fill="#FFF" stroke="#718096" stroke-width="2" rx="5"/>
+      <text x="195" y="245" font-size="14" text-anchor="middle" fill="#2D3748">Databases</text>
+    </g>
+    
+    <!-- Arrow down -->
+    <path d="M 195 270 L 195 310" stroke="#3182CE" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+    
+    <!-- Document Splitter -->
+    <rect x="120" y="320" width="150" height="60" fill="#E6FFFA" stroke="#319795" stroke-width="2" rx="5"/>
+    <text x="195" y="345" font-size="14" font-weight="bold" text-anchor="middle" fill="#234E52">Document</text>
+    <text x="195" y="365" font-size="14" font-weight="bold" text-anchor="middle" fill="#234E52">Splitter</text>
+    
+    <!-- Chunks visualization -->
+    <g id="chunks">
+      <rect x="80" y="420" width="60" height="30" fill="#FED7D7" stroke="#FC8181" stroke-width="1" rx="3"/>
+      <text x="110" y="440" font-size="12" text-anchor="middle" fill="#742A2A">Chunk 1</text>
+      
+      <rect x="150" y="420" width="60" height="30" fill="#FED7D7" stroke="#FC8181" stroke-width="1" rx="3"/>
+      <text x="180" y="440" font-size="12" text-anchor="middle" fill="#742A2A">Chunk 2</text>
+      
+      <rect x="220" y="420" width="60" height="30" fill="#FED7D7" stroke="#FC8181" stroke-width="1" rx="3"/>
+      <text x="250" y="440" font-size="12" text-anchor="middle" fill="#742A2A">Chunk 3</text>
+    </g>
+    
+    <!-- Arrow down -->
+    <path d="M 195 460 L 195 500" stroke="#3182CE" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+    
+    <!-- Embedding Model -->
+    <rect x="120" y="510" width="150" height="60" fill="#F0FDF4" stroke="#22C55E" stroke-width="2" rx="5"/>
+    <text x="195" y="535" font-size="14" font-weight="bold" text-anchor="middle" fill="#166534">Embedding</text>
+    <text x="195" y="555" font-size="14" font-weight="bold" text-anchor="middle" fill="#166534">Model</text>
+    
+    <!-- Vector representation -->
+    <text x="195" y="610" font-size="12" text-anchor="middle" fill="#4A5568">[0.23, -0.45, 0.67...]</text>
+    
+    <!-- Arrow down -->
+    <path d="M 195 620 L 195 660" stroke="#3182CE" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+    
+    <!-- Vector Database -->
+    <rect x="120" y="670" width="150" height="80" fill="#FAF5FF" stroke="#9333EA" stroke-width="2" rx="5"/>
+    <text x="195" y="700" font-size="14" font-weight="bold" text-anchor="middle" fill="#581C87">Vector</text>
+    <text x="195" y="720" font-size="14" font-weight="bold" text-anchor="middle" fill="#581C87">Database</text>
+    <text x="195" y="740" font-size="11" text-anchor="middle" fill="#6B21A8">(FAISS, Pinecone)</text>
+  </g>
+  
+  <!-- Phase 2: Query Processing (Middle) -->
+  <g id="query-phase">
+    <!-- Background -->
+    <rect x="410" y="60" width="380" height="720" fill="#F0FDF4" stroke="#22C55E" stroke-width="2" rx="10"/>
+    <text x="600" y="90" font-size="20" font-weight="bold" text-anchor="middle" fill="#166534">2. Query Processing Phase</text>
+    
+    <!-- User Query -->
+    <ellipse cx="600" cy="140" rx="100" ry="35" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+    <text x="600" y="135" font-size="14" font-weight="bold" text-anchor="middle" fill="#92400E">User Query:</text>
+    <text x="600" y="155" font-size="12" text-anchor="middle" fill="#92400E">"What is RAG?"</text>
+    
+    <!-- Arrow down -->
+    <path d="M 600 175 L 600 215" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrowgreen)"/>
+    
+    <!-- Query Embedding -->
+    <rect x="525" y="225" width="150" height="60" fill="#E0E7FF" stroke="#6366F1" stroke-width="2" rx="5"/>
+    <text x="600" y="250" font-size="14" font-weight="bold" text-anchor="middle" fill="#4338CA">Query to</text>
+    <text x="600" y="270" font-size="14" font-weight="bold" text-anchor="middle" fill="#4338CA">Embedding</text>
+    
+    <!-- Vector representation -->
+    <text x="600" y="315" font-size="12" text-anchor="middle" fill="#4A5568">[0.31, -0.22, 0.85...]</text>
+    
+    <!-- Arrow down -->
+    <path d="M 600 325 L 600 365" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrowgreen)"/>
+    
+    <!-- Similarity Search -->
+    <rect x="480" y="375" width="240" height="80" fill="#FEFCE8" stroke="#EAB308" stroke-width="2" rx="5"/>
+    <text x="600" y="405" font-size="14" font-weight="bold" text-anchor="middle" fill="#713F12">Similarity Search</text>
+    <text x="600" y="425" font-size="12" text-anchor="middle" fill="#854D0E">Find most relevant chunks</text>
+    <text x="600" y="445" font-size="11" text-anchor="middle" fill="#854D0E">(Cosine similarity, k-NN)</text>
+    
+    <!-- Bidirectional arrow to Vector DB -->
+    <path d="M 480 415 L 270 710" stroke="#9333EA" stroke-width="3" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowpurple)"/>
+    <path d="M 270 710 L 480 415" stroke="#9333EA" stroke-width="3" stroke-dasharray="5,5" fill="none" marker-start="url(#arrowpurple)"/>
+    
+    <!-- Arrow down -->
+    <path d="M 600 455 L 600 495" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrowgreen)"/>
+    
+    <!-- Retrieved Chunks -->
+    <g id="retrieved-chunks">
+      <rect x="460" y="505" width="80" height="40" fill="#DCFCE7" stroke="#22C55E" stroke-width="2" rx="3"/>
+      <text x="500" y="520" font-size="11" text-anchor="middle" fill="#166534">Relevant</text>
+      <text x="500" y="535" font-size="11" text-anchor="middle" fill="#166534">Chunk 1</text>
+      
+      <rect x="560" y="505" width="80" height="40" fill="#DCFCE7" stroke="#22C55E" stroke-width="2" rx="3"/>
+      <text x="600" y="520" font-size="11" text-anchor="middle" fill="#166534">Relevant</text>
+      <text x="600" y="535" font-size="11" text-anchor="middle" fill="#166534">Chunk 2</text>
+      
+      <rect x="660" y="505" width="80" height="40" fill="#DCFCE7" stroke="#22C55E" stroke-width="2" rx="3"/>
+      <text x="700" y="520" font-size="11" text-anchor="middle" fill="#166534">Relevant</text>
+      <text x="700" y="535" font-size="11" text-anchor="middle" fill="#166534">Chunk 3</text>
+    </g>
+    
+    <!-- Arrow down -->
+    <path d="M 600 555 L 600 595" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrowgreen)"/>
+    
+    <!-- Context Formation -->
+    <rect x="450" y="605" width="300" height="80" fill="#F3E8FF" stroke="#9333EA" stroke-width="2" rx="5"/>
+    <text x="600" y="630" font-size="14" font-weight="bold" text-anchor="middle" fill="#581C87">Augmented Context</text>
+    <text x="600" y="650" font-size="11" text-anchor="middle" fill="#6B21A8">Original Query + Retrieved Chunks</text>
+    <text x="600" y="670" font-size="10" text-anchor="middle" fill="#7C3AED">"Given this context: [chunks]... Answer: What is RAG?"</text>
+    
+    <!-- Arrow to LLM -->
+    <path d="M 750 645 L 820 645" stroke="#22C55E" stroke-width="3" fill="none" marker-end="url(#arrowgreen)"/>
+  </g>
+  
+  <!-- Phase 3: Generation (Right Side) -->
+  <g id="generation-phase">
+    <!-- Background -->
+    <rect x="830" y="60" width="350" height="720" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" rx="10"/>
+    <text x="1005" y="90" font-size="20" font-weight="bold" text-anchor="middle" fill="#92400E">3. Generation Phase</text>
+    
+    <!-- LLM -->
+    <rect x="880" y="580" width="250" height="120" fill="#E0E7FF" stroke="#6366F1" stroke-width="3" rx="10"/>
+    <text x="1005" y="620" font-size="18" font-weight="bold" text-anchor="middle" fill="#4338CA">Large Language Model</text>
+    <text x="1005" y="645" font-size="14" text-anchor="middle" fill="#6366F1">(GPT-4, Claude, Llama)</text>
+    <text x="1005" y="670" font-size="12" text-anchor="middle" fill="#818CF8">Processes augmented context</text>
+    <text x="1005" y="690" font-size="12" text-anchor="middle" fill="#818CF8">to generate response</text>
+    
+    <!-- Arrow up from LLM -->
+    <path d="M 1005 580 L 1005 520" stroke="#F59E0B" stroke-width="3" fill="none" marker-end="url(#arroworange)"/>
+    
+    <!-- Generated Response -->
+    <rect x="880" y="350" width="250" height="160" fill="#FFF" stroke="#10B981" stroke-width="2" rx="5"/>
+    <text x="1005" y="380" font-size="16" font-weight="bold" text-anchor="middle" fill="#047857">Generated Response</text>
+    <text x="890" y="410" font-size="12" fill="#064E3B">RAG (Retrieval-Augmented Generation)</text>
+    <text x="890" y="430" font-size="12" fill="#064E3B">is a technique that enhances AI</text>
+    <text x="890" y="450" font-size="12" fill="#064E3B">responses by retrieving relevant</text>
+    <text x="890" y="470" font-size="12" fill="#064E3B">information from a knowledge base</text>
+    <text x="890" y="490" font-size="12" fill="#064E3B">before generating an answer.</text>
+    
+    <!-- Arrow up to user -->
+    <path d="M 1005 350 L 1005 290" stroke="#F59E0B" stroke-width="3" fill="none" marker-end="url(#arroworange)"/>
+    
+    <!-- User -->
+    <circle cx="1005" cy="220" r="50" fill="#E0E7FF" stroke="#6366F1" stroke-width="2"/>
+    <text x="1005" y="225" font-size="16" font-weight="bold" text-anchor="middle" fill="#4338CA">User</text>
+  </g>
+  
+  <!-- Key Benefits Box -->
+  <g id="benefits">
+    <rect x="420" y="720" width="360" height="50" fill="#FFF" stroke="#4B5563" stroke-width="1" rx="5"/>
+    <text x="600" y="740" font-size="12" font-weight="bold" text-anchor="middle" fill="#1F2937">Key Benefits:</text>
+    <text x="600" y="758" font-size="11" text-anchor="middle" fill="#4B5563">✓ Current Information  ✓ Reduced Hallucinations  ✓ Domain-Specific Knowledge</text>
+  </g>
+  
+  <!-- Arrow Markers -->
+  <defs>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,10 L10,5 z" fill="#3182CE"/>
+    </marker>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,10 L10,5 z" fill="#22C55E"/>
+    </marker>
+    <marker id="arroworange" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,10 L10,5 z" fill="#F59E0B"/>
+    </marker>
+    <marker id="arrowpurple" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,10 L10,5 z" fill="#9333EA"/>
+    </marker>
+  </defs>
+</svg>
