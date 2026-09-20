@@ -1,0 +1,20 @@
+name,description,query,id,parentId,isFolder
+Creating Nodes for Users,,"LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/krishnaik06/graph-dataset/main/users_social.csv' AS row
+CREATE (:User{userId:toInteger(row.userId),name:row.name,age:toInteger(row.age),city:row.city});
+",0,,false
+Creating Nodes for Posts,,"LOAD CSV WITH HEADERS From ""https://raw.githubusercontent.com/krishnaik06/graph-dataset/main/posts.csv"" as row 
+MATCH (u:User {userId:toInteger(row.userId)})
+CREATE (u)-[:POSTED]->(:Post{postId:toInteger(row.postId),content:row.content,timestamp:datetime(row.timestamp)});",1,,false
+Retrieve posted details,,MATCH p=()-[:POSTED]->() RETURN p LIMIT 25;,2,,false
+" Creating Relationships",,"LOAD CSV WITH HEADERS FROM ""https://raw.githubusercontent.com/krishnaik06/graph-dataset/main/relationships.csv"" as row
+MATCH (u1:User {userId: toInteger(row.userId1)}), (u2:User {userId: toInteger(row.userId2)})
+CREATE (u1)-[:FRIEND]->(u2)
+CREATE (u1)-[:LIKES]->(u2);",3,,false
+Retrieve All Users,,MATCH (u:User) RETURN u,4,,false
+Retrieve All Posts,,MATCH (p:Post) RETURN p;,5,,false
+Retrieve Friends of a Specific User,,MATCH (u:User {name:'John'})-[:FRIEND]-(f:User) RETURN f.name;,6,,false
+Retrieve Posts Made by Friends of a Specific User,,"MATCH (u:User{name:'John'})-[:FRIEND]-(f:User)-[:POSTED]->(p:Post) RETURN f.name,p.content;",7,,false
+Count the Number of Friends Each User Has,,"MATCH (u:User)-[:FRIEND]-(f:User)
+RETURN u.name, COUNT(f) AS numberOfFriends
+ORDER BY numberOfFriends DESC;
+",8,,false
