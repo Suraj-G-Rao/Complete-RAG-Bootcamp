@@ -1,0 +1,3 @@
+An agent loop is the cycle of thinking, acting, and observing. It allows an AI agent to continuously refine its actions based on results.
+This feedback loop is crucial in autonomous systems to adapt in real-time.
+Agent-based architectures benefit from memory, planning, and interaction with tools.
